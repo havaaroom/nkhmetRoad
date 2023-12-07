@@ -1,0 +1,787 @@
+@font-face {
+  font-family: "byekan";
+  src: url("../fonts/BYekan.eot");
+  src: url("../fonts/BYekan.woff") format("woff");
+  src: url("../fonts/BYekan.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* ****************************************** */
+html * {
+  font-family: "byekan" !important;
+}
+body {
+  background-color: #82b1d8 !important;
+  padding: 0;
+  margin: 0;
+  width: 100vw !important;
+}
+/* ****************************************** */
+#afui #settingsList.list li {
+  padding: 10px;
+}
+/* ****************************************** */
+#mainapp {
+  position: absolute;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 6% 3% 1fr 4%;
+  background-color: #54a9c5;
+  padding: 0;
+  margin: 0;
+}
+
+#appmenu {
+  display: inline-flex;
+  background-color: #1163a5 !important;
+}
+.mainhead {
+  font-size: 17px !important;
+  font-weight: bold !important;
+  width: 60% !important;
+  text-align: center !important;
+  vertical-align: middle;
+  color: white;
+  line-height: 100%;
+}
+.arrowUp {
+  background-color: transparent;
+  border: none;
+  width: 20%;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+  color: white;
+  text-decoration: none;
+}
+.home-menu {
+  background-color: transparent;
+  border: none;
+  width: 20%;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: right;
+  color: white;
+  text-decoration: none;
+}
+
+/* ****************************************** */
+.main-container {
+  position: relative;
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 1fr 5% 33%;
+  background-color: #54a9c5;
+  padding: 0;
+  margin: 0;
+}
+/* ****************************************** */
+.time-container {
+  text-align: center;
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: #54a9c5;
+  padding: 0;
+  margin: 0;
+  font-size: 14px !important;
+  color: #363636 !important;
+}
+/* ****************************************** */
+#mapDiv {
+  position: relative;
+  height: 100%;
+}
+
+.popupTable {
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+  color: #5f5d5d;
+}
+.city {
+  font-weight: bold;
+  border-bottom: 2px solid rgb(92, 91, 91);
+}
+.frcstcontent {
+  font-size: 13px;
+  font-weight: normal;
+}
+.tmax {
+  font-weight: bold;
+  border-radius: 10px;
+  width: 50%;
+  background-color: #ff3355;
+  color: white;
+}
+.tmin {
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+  width: 50%;
+  background-color: #33acff;
+}
+.wwparams {
+  font-weight: bold;
+  color: #3f3e3e;
+}
+.wwparamsr {
+  text-align: right !important;
+  font-weight: bold;
+  color: #3f3e3e;
+}
+.wwparamsl {
+  text-align: left !important;
+  font-weight: bold;
+  font-size: 12px;
+  color: #3f3e3e;
+}
+.wwparamsl2 {
+  text-align: left !important;
+  font-weight: bold;
+  font-size: 15px;
+  color: #3f3e3e;
+}
+.cityWW {
+  font-weight: bold;
+  /* background-color: #9ec1d8; */
+  border-bottom: 2px solid rgb(92, 91, 91);
+}
+/* ****************************************** */
+.btns-container {
+  position: relative;
+  display: grid;
+  grid-gap: 1%;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: 9% 80% 9%;
+  background-color: #54a9c5;
+  /* padding: 0 1%; */
+  margin: 0;
+  /* border-bottom: 2px solid rgb(51, 50, 50);
+  border-top: 2px solid rgb(51, 50, 50); */
+}
+.btnsleft {
+  width: 0;
+  height: 0;
+  margin: auto;
+  background-color: #54a9c5;
+  border-left: none;
+  border-top: 10px solid transparent;
+  border-right: 18px solid #ccda13;
+  border-bottom: 10px solid transparent;
+}
+.btnsright {
+  width: 0;
+  height: 0;
+  margin: auto;
+
+  background-color: #54a9c5;
+  border-right: none;
+  border-top: 10px solid transparent;
+  border-left: 18px solid #ccda13;
+  border-bottom: 10px solid transparent;
+}
+.btncenter {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  border: none !important;
+  /* border-radius: 3px; */
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px !important;
+  color: #363636;
+  cursor: pointer;
+  vertical-align: middle;
+  background-color: #54a9c5;
+}
+.btnsright:hover {
+  background-color: #54a9c5;
+  border-left: 20px solid #606608;
+  color: white;
+}
+.btnsleft:hover {
+  background-color: #54a9c5;
+  border-right: 20px solid #606608;
+  color: white;
+}
+
+/* ****************************************** */
+::-webkit-scrollbar {
+  height: 4px; /* height of horizontal scrollbar ← You're missing this */
+  width: 0px; /* width of vertical scrollbar */
+  border: none;
+}
+.table-container {
+  width: 100%;
+  height: 100% !important;
+  text-align: right;
+  overflow-x: scroll !important;
+  overflow-y: hidden;
+  display: inline-flex;
+  flex-direction: row-reverse;
+  margin: 5px 5px;
+  padding-right: 5px;
+  /* justify-content: space-around; */
+  /* float: right; */
+}
+.cityDiv {
+  width: auto;
+  position: relative;
+  height: 100%;
+  display: inline-block;
+  margin-right: 5px;
+}
+.cityTable {
+  width: auto;
+  min-width: 90px;
+  height: 100% !important;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+  background-color: #ffefd5;
+  white-space: nowrap;
+  font-size: 13px;
+}
+.cityTable:hover {
+  background-color: rgb(216, 215, 215);
+}
+.cityTmax {
+  height: 15%;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #f5d9c1;
+  background-color: #ff3355;
+}
+.cityTmin {
+  height: 15%;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #f5d9c1;
+  background-color: #33acff;
+}
+.cityName {
+  font-size: 15px;
+  font-weight: bold;
+  height: 15%;
+  color: #5f5d5d !important;
+}
+.wwAbstract {
+  height: 15%;
+  color: #5f5d5d !important;
+}
+.cityImg {
+  padding: 0 0;
+  width: 50px;
+  height: 50px;
+}
+/* ****************************************** */
+.footer-container {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+  background-color: #1a33be !important;
+  text-align: center;
+  text-decoration: none;
+  color: white !important;
+  font-size: 14px !important;
+}
+#support {
+  font-size: 14px !important;
+  color: white !important;
+  margin: 0 auto;
+  text-decoration: none;
+}
+#support:hover {
+  cursor: pointer;
+  color: darkblue !important;
+}
+/* ****************************************** */
+.currpos {
+  width: 26px;
+  height: 26px;
+  padding-top: 7px;
+  color: #1163a5;
+}
+
+/* ****************************************** Find Direction Box*/
+.direction {
+  text-align: right;
+  background-color: transparent;
+  float: right;
+  position: absolute;
+  display: none;
+  row-gap: 10%;
+  padding: 1% 1%;
+  grid-template-rows: 30% 30% 35%;
+  right: 5px;
+  top: 70px;
+  z-index: 800;
+  width: 250px;
+  height: 150px;
+  border-radius: 10px;
+}
+.departureDive {
+  text-align: center;
+  background-color: transparent;
+  float: right;
+  position: relative;
+  column-gap: 5%;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+.currposDeparture {
+  width: 60%;
+  height: 60%;
+  justify-self: right;
+  color: #1163a5;
+}
+.currposDeparture:hover {
+  cursor: pointer;
+  width: 80%;
+  height: 80%;
+}
+#departure {
+  border: none;
+  border: 1px solid gray;
+  text-align: center;
+  border-radius: 100px;
+  width: 75%;
+  justify-self: right;
+}
+#destination {
+  border: none;
+  border: 1px solid gray;
+  text-align: center;
+  border-radius: 100px;
+  width: 75%;
+  justify-self: right;
+}
+#departure:focus,
+#destination:focus {
+  outline: none !important;
+  border: 2px solid #719ece;
+  box-shadow: 0 0 10px #719ece;
+}
+.findDirection {
+  width: 50%;
+  border-radius: 10px;
+  justify-self: center;
+  margin-left: 25%;
+}
+.findDirection:hover {
+  box-shadow: 0 0 10px #5189c5;
+}
+/* ****************************************** */
+
+.leafletMenu {
+  text-align: center;
+  background-color: transparent;
+  float: left;
+  position: absolute;
+  display: block;
+  row-gap: 3%;
+  padding: 0% 0%;
+  grid-template-rows: repeat(4, 1fr);
+  left: 5px;
+  top: 70px;
+  z-index: 800;
+  width: 50px;
+  height: 250px;
+}
+.leafletbtns {
+  width: 100%;
+  height: 17%;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 8px;
+  justify-self: center;
+  cursor: pointer;
+}
+
+/* ****************************************** */
+.surveyDiv {
+  text-align: center;
+  background-color: transparent;
+  float: left;
+  position: absolute;
+  display: none;
+  row-gap: 2%;
+  padding: 0% 0%;
+  grid-template-rows: repeat(4, 1fr);
+  left: 7px;
+  top: 52%;
+  z-index: 830;
+  width: 45px;
+  height: 45px;
+}
+.survey {
+  width: 100%;
+  height: 100%;
+  justify-self: center;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.survey:hover {
+  opacity: 0.9;
+  transform: scale(1.2);
+}
+/* ****************************************** */
+.thankYouDiv,
+.surveyFormDiv {
+  text-align: center;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.8;
+  float: left;
+  position: absolute;
+  display: none;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+}
+.thankYou,
+.surveyForm {
+  position: relative;
+  width: 80%;
+  height: 120px;
+  left: 10%;
+  top: 40%;
+  row-gap: 4%;
+  padding: 10px;
+  display: none;
+  text-align: center;
+  grid-template-rows: 38% 60%;
+  justify-items: center;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  opacity: 1 !important;
+}
+
+.surveyQ {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(29, 28, 28);
+}
+.tanx {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(29, 28, 28);
+  margin-top: 5%;
+}
+.surveyItems {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  row-gap: 2%;
+  display: none;
+  padding-top: 4px;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid #a2a2a5;
+}
+.surveyitem {
+  width: 40px;
+  height: 40px;
+  opacity: 1;
+}
+.surveyitem:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+/* ****************************************** */
+#loading {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  width: 4rem;
+  height: 4rem;
+  border: 5px solid #f3f3f3;
+  border-top: 6px solid #9c41f2;
+  border-radius: 100%;
+  margin: auto;
+  visibility: hidden;
+  animation: spin 1s infinite linear;
+  z-index: 20000;
+}
+#loading.display {
+  visibility: visible;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* ****************************************** */
+#overlay {
+  position: absolute;
+  display: none;
+  opacity: 0.6;
+  right: 0px;
+  top: 9%;
+  width: 100%;
+  height: 91%;
+  background-color: rgb(109, 108, 108);
+  z-index: 10000;
+}
+.sidebar {
+  position: absolute;
+  text-align: center;
+  display: none;
+  grid-template-rows: 15% 6% 1fr 6%;
+  row-gap: 1%;
+  justify-items: center;
+  right: 0px;
+  top: 9%;
+  width: 25%;
+  height: 91%;
+  background-color: whitesmoke;
+  z-index: 10000;
+  font-size: 16px;
+}
+.armTag {
+  width: 100%;
+  padding: 5px;
+}
+.armPic {
+  width: 200px;
+  height: 60px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.provinceTitle {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  align-items: center;
+  border-top: 1px solid #5f5d5d;
+  border-bottom: 1px solid #5f5d5d;
+  background-color: #5685ac;
+  color: whitesmoke;
+}
+.protitle {
+  text-align: center;
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+}
+.provinces {
+  width: 100%;
+  text-align: center;
+  display: grid;
+  grid-template-rows: repeat(31, 1fr);
+  justify-items: center;
+  overflow-y: auto !important;
+}
+.menu-btns {
+  padding: 5px;
+  margin-top: 0;
+  width: 100%;
+  border: none !important;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px !important;
+  color: #292929;
+  cursor: pointer;
+}
+.menu-btns:hover {
+  background-color: #d3d2d2;
+}
+.helpBtn {
+  border: none;
+  width: 100%;
+  font-size: 18px !important;
+  background-color: #5685ac;
+  color: whitesmoke;
+  cursor: pointer !important;
+}
+.helpBtn:hover {
+  background-color: #888787;
+}
+.helpContent {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 92%;
+  top: 50px;
+  right: 0px;
+  background-color: whitesmoke;
+  z-index: 10000;
+  text-align: right;
+}
+.helpdiv {
+  padding: 10px;
+  margin: 10px;
+  color: #292929;
+}
+.list {
+  list-style-type: none;
+}
+.listItem {
+  display: inline-block;
+  vertical-align: middle;
+}
+.closeHelp {
+  width: 30px;
+  height: 30px;
+  font-size: 22px !important;
+  border: none;
+}
+.closeHelp:hover {
+  background-color: #5f5d5d;
+}
+.helpEmoji {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  color: #1163a5;
+  float: right;
+}
+/* ****************************************** */
+
+@media (min-width: 640px) and (max-width: 900) {
+  .mainhead {
+    font-size: 15px !important;
+  }
+  .btns {
+    font-size: 18px;
+  }
+  .thankYou,
+  .surveyForm {
+    width: 40%;
+    left: 30%;
+  }
+  .main-container {
+    grid-template-rows: 3% 1fr 5% 32% 3%;
+  }
+  .cityTable {
+    width: 120px !important;
+    height: 100%;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    background-color: #ffefd5;
+    word-wrap: break-word;
+    font-size: 20px;
+  }
+  .cityTmax {
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 22px;
+    color: white;
+    background-color: #ff3355;
+    height: 12.5% !important;
+  }
+  .cityTmin {
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 22px;
+    color: white;
+    background-color: #33acff;
+    height: 12.5% !important;
+  }
+  .cityName {
+    width: 110px !;
+    word-wrap: break-word;
+    height: 15% !important;
+    color: #5f5d5d !important;
+  }
+  .wwAbstract {
+    width: 110px;
+    word-wrap: break-word;
+    height: 25% !important;
+    color: #5f5d5d !important;
+  }
+  .cityImg {
+    width: 100%;
+    height: 35% !important;
+  }
+  .leafletMenu {
+    left: 9px;
+    top: 80px;
+    width: 50px;
+    height: 250px;
+  }
+  .leafletbtns {
+    width: 100%;
+    height: 18%;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    justify-self: center;
+    cursor: pointer;
+  }
+  .arrowUp {
+    width: 60px !important;
+  }
+  .home-menu {
+    margin-top: 7px;
+    margin-right: 7px;
+    font-size: 24px;
+    width: 70px !important;
+  }
+  .home-menu:hover {
+    font-size: 26px;
+    animation: fadeIn 300ms ease;
+  }
+  .sidebar {
+    width: 100%;
+  }
+}
+@media (min-width: 990px) {
+  .btns {
+    font-size: 18px;
+  }
+  .thankYou,
+  .surveyForm {
+    width: 30%;
+    left: 35%;
+  }
+  .tanx {
+    margin-top: 1%;
+  }
+  .arrowUp:hover {
+    font-size: 26px;
+    animation: fadeIn 300ms ease;
+  }
+  #home:hover {
+    font-size: 26px;
+    animation: fadeIn 300ms ease;
+  }
+  .leafletbtns:hover {
+    background-color: rgb(185, 181, 181);
+    border: 2px solid #a2a2a5;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sidebar {
+    width: 100%;
+  }
+  .mainhead {
+    font-size: 14px !important;
+  }
+  .arrowUp {
+    font-size: 20px;
+  }
+}

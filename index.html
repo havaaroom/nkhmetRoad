@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <title>هواشناسی جاده ای خراسان شمالی</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, maximum-scale=1.0"
+    />
+     <meta name="keywords" content="هواشناسی جاده ای، برنامه ریزی سفر، هواشناسی استان ها، هوای حاضر، پیش بینی مراکز استانی"/>
+    <link rel="stylesheet" href="assets/modules/styles.css" />
+    <link rel="stylesheet" href="assets/leaflet/leaflet.css" />
+    <script src="assets/leaflet/leaflet.js"></script>
+    <script src="assets/modules/metfunctions.js"></script>
+    <script src="assets/modules/leaflet.ajax.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>    
+  </head>
+  <body>
+    <div id="mainapp">
+      <div id="appmenu">
+          <button
+            id = "mapMenu"
+            href="#"
+            data-transition="" 
+            class="arrowUp"
+            title="منوی نقشه"
+          ><span id="arrowup">✺</span></button>        
+          <h1 class="mainhead">هواشناسی جاده ای خراسان شمالی</h1>
+          <button
+            id = "homeMenu"
+            href="#"
+            class="home-menu"
+          ><span id ="home" >☰</span></button>
+      </div>
+      <div id="digital-date" class="time-container"></div>
+      <script src="assets/modules/clock.js"></script>
+      <div id="secondmain">
+        <div id ="mainContainer" class="main-container"> 
+            <div id="mapDiv" onclick="mapClicked()"></div>
+            <div class="btns-container">
+              <button id="btn1" class="btnsleft" title="پیش بینی روز بعد" onclick="moveForeward()"></button>
+              <button id="btn2" class="btncenter" onclick=""></button>
+              <button id="btn3" class="btnsright" title="پیش بینی روز قبل" onclick="moveBackward()"></button>
+            </div>
+            <div id="tableContainer" class="table-container"></div>
+        </div>
+        <div id="overlay"></div>
+        <div id="sidebar" class="sidebar">
+          <a class="armTag" href="https://www.nkhmet.ir/"  target="_blank"><img src="assets/images/arm1.png" class="armPic" ></a>
+          <div class="provinceTitle">
+            <p class="protitle">پیش بینی شرایط جوی استان ها</p>
+          </div>
+          <div id="provinces" class="provinces">
+            <button id="btn01" class="menu-btns" onclick="provinceClick(1)">آذربایجان شرقی</button>
+            <button id="btn02" class="menu-btns" onclick="provinceClick(2)">آذربایجان غربی</button>
+            <button id="btn03" class="menu-btns" onclick="provinceClick(3)">اردبیل</button>
+            <button id="btn04" class="menu-btns" onclick="provinceClick(4)">اصفهان</button>
+            <button id="btn05" class="menu-btns" onclick="provinceClick(5)">البرز</button>
+            <button id="btn06" class="menu-btns" onclick="provinceClick(6)">ایلام</button>
+            <button id="btn07" class="menu-btns" onclick="provinceClick(7)">بوشهر</button>
+            <button id="btn08" class="menu-btns" onclick="provinceClick(8)">تهران</button>
+            <button id="btn09" class="menu-btns" onclick="provinceClick(9)">چهارمحال و بختیاری</button>
+            <button id="btn10" class="menu-btns" onclick="provinceClick(10)">خراسان جنوبی</button>
+            <button id="btn11" class="menu-btns" onclick="provinceClick(11)">خراسان رضوی</button>
+            <button id="btn12" class="menu-btns" onclick="provinceClick(12)">خراسان شمالی</button>
+            <button id="btn13" class="menu-btns" onclick="provinceClick(13)">خوزستان</button>
+            <button id="btn14" class="menu-btns" onclick="provinceClick(14)">زنجان</button>
+            <button id="btn15" class="menu-btns" onclick="provinceClick(15)">سمنان</button>
+            <button id="btn16" class="menu-btns" onclick="provinceClick(16)">سیستان و بلوچستان</button>
+            <button id="btn17" class="menu-btns" onclick="provinceClick(17)">فارس</button>
+            <button id="btn18" class="menu-btns" onclick="provinceClick(18)">قزوین</button>
+            <button id="btn19" class="menu-btns" onclick="provinceClick(19)">قم</button>
+            <button id="btn20" class="menu-btns" onclick="provinceClick(20)">کردستان</button>
+            <button id="btn21" class="menu-btns" onclick="provinceClick(21)">کرمان</button>
+            <button id="btn22" class="menu-btns" onclick="provinceClick(22)">کرمانشاه</button>
+            <button id="btn23" class="menu-btns" onclick="provinceClick(23)">کهگیلویه و بویراحمد</button>
+            <button id="btn24" class="menu-btns" onclick="provinceClick(24)">گلستان</button>
+            <button id="btn25" class="menu-btns" onclick="provinceClick(25)">گیلان</button>
+            <button id="btn26" class="menu-btns" onclick="provinceClick(26)">لرستان</button>
+            <button id="btn27" class="menu-btns" onclick="provinceClick(27)">مازندران</button>
+            <button id="btn28" class="menu-btns" onclick="provinceClick(28)">مرکزی</button>
+            <button id="btn29" class="menu-btns" onclick="provinceClick(29)">هرمزگان</button>
+            <button id="btn30" class="menu-btns" onclick="provinceClick(30)">همدان</button>
+            <button id="btn31" class="menu-btns" onclick="provinceClick(31)">یزد</button>
+          </div>
+          <button id="helpBtn" class="helpBtn" onclick="showHelp()">راهنمای سایت</button>
+        </div>
+        <div id = "helpContent" class="helpContent">
+          <button id="closeHelp" class="closeHelp" onclick="closeHelp()">✘</button>
+          <div id="helpdiv" class="helpdiv">
+          <p>خدمات پیش بینی جوی که در اینجا ارایه می شود عبارتند از </p>
+          <ul class="list">
+            <li >
+              <ion-icon class= "helpEmoji" name="rainy-outline"></ion-icon>
+              <p>پیش بینی جوی چهار روزه مراکز استانها &nbsp;&nbsp;&nbsp;</p>
+            </li>    
+            <li> 
+              <ion-icon class= "helpEmoji" name="car"></ion-icon>
+              <p>انتخاب مسیر سفر و مشاهده پیش بینی جوی چهار روزه مسیر انتخابی&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li>
+              <ion-icon class= "helpEmoji" name="menu-outline"></ion-icon>
+              <p> انتخاب استان مورد نظر از منو و مشاهده پیش بینی جوی شهرستان های آن استان &nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li>
+              <ion-icon class= "helpEmoji" name="sunny-outline"></ion-icon>
+              <p> مشاهده شرایط جوی حال حاضر&nbsp;&nbsp;&nbsp;</p>
+            </li>
+          </ul>
+          <p>اطلاعات پیش بینی شامل وضعیت جوی ، دمای بیشینه و دمای کمینه که ارایه می شود خروجی فعالیت مراکز پیش بینی استان ها و مرکز ملی پیش بینی سازمان هواشناسی کشور می باشد</p>
+          <br>
+          <p>نظرات و پیشنهادات خود را می توانید با بخش پشتیبانی درمیان بگذارید یا به آدرس زیر ارسال نمایید</p>
+          <a style="color:blueviolet">info@nkhmet.ir</a>
+        </div>
+        </div>    
+        <div class="direction">
+          <!-- <div class="departureDive"> -->
+            <!-- <ion-icon class= "currposDeparture" title="با زدن این شکل ، مبدا حرکت شما موقعیت فعلی شما انتخاب خواهد شد" name="location"></ion-icon> -->
+            <!-- <img class= "currposDeparture"title="با زدن این شکل ، مبدا حرکت شما موقعیت فعلی شما انتخاب خواهد شد" src="./assets/images/currentPos1.png" onclick="getGeoLocation2()"></img> -->
+          <input id="departure" type="text" class="locName" title="می توانید مبدا حرکت خود را در این قسمت به فارسی بنویسید یا از روز نقشه انتخاب کنید" placeholder="مبدا سفر" onclick="departureClick();"></input>
+          <!-- </div> -->
+          <input id="destination" type="text" class="locName" title="می توانید مقصد حرکت خود را در این قسمت به فارسی بنویسید یا از روز نقشه انتخاب کنید" placeholder="مقصد سفر" onclick="destinationClick();"></input>
+          <button id="dirBtn" class="findDirection" onclick="findRoute()">یافتن مسیر</button>
+        </div>
+        <div class="leafletMenu">
+            <button id="leafletBtn1" class="leafletbtns" title="Zoom In">+</button>
+            <button id="leafletBtn2" class="leafletbtns" title="Zoom Out">-</button>
+            <!-- <button id="leafletBtn4" class="leafletbtns" title="موقعیت الان من">
+              <ion-icon class= "currpos" name="location"></ion-icon>
+            </button> -->
+            <button id="leafletBtn3" class="leafletbtns" title="پیش بینی مراکز استانها">
+              <!-- <img class= "currpos" src="./assets/images/rainy-outline.svg"></img> -->
+              <ion-icon class= "currpos" name="rainy-outline"></ion-icon>
+            </button>
+            <button id="leafletBtn4" class="leafletbtns" title="هوای حاضر" onclick="presentWeather()">
+              <!-- <img class= "currpos" src="./assets/images/rainy-outline.svg"></img> -->
+              <ion-icon class= "currpos" name="sunny-outline"></ion-icon>
+            </button>
+            <button id="leafletBtn5" class="leafletbtns" title="پیش بینی مسیر سفر" >
+              <ion-icon class= "currpos" name="car"></ion-icon>
+              <!-- <img class= "currpos" src="./assets/images/car.svg"></img> -->
+            </button> 
+        </div>
+        <div class="surveyDiv">
+              <img id="surveyImg" class= "survey" title="نظرسنجی" src="./assets/images/happy2.png"></img>
+        </div>
+        <div class="surveyFormDiv">
+          <div class="surveyForm">
+            <p class="surveyQ">لطفا میزان رضایت خود را ثبت نمایید</p>
+            <div class="surveyItems">
+              <img id ="heart" class= "surveyitem" title="عالی بود" src="./assets/images/heart2.png"></img>
+              <img id ="happy" class= "surveyitem" title="خوب بود" src="./assets/images/happy2.png"></img>
+              <img id ="confused" class= "surveyitem" title="نظر خاصی ندارم" src="./assets/images/confused2.png"></img>
+              <img id ="sad" class= "surveyitem" title="بد بود" src="./assets/images/sad2.png"></img>
+              <img id ="angry" class= "surveyitem" title="خیلی بد بود" src="./assets/images/angry2.png"></img>
+            </div>
+          </div>
+        </div>
+        <div class="thankYouDiv">
+          <div class="thankYou">
+            <p class="tanx">سپاس از شما</p>
+            <p class="tanx">نظر شما ثبت گردید</p>
+          </div>
+        </div>
+        <div id="loading"></div>
+      </div>
+      <div class="footer-container">
+        <a id="support" href="https://www.nkhmet.ir/" target="_blank"
+              >پشتیبانی: اداره فناوری اطلاعات هواشناسی استان خراسان شمالی</a
+            >
+      </div>
+    </div>
+  </body>
+</html>
